@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shrd_prefs/home_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -24,6 +25,9 @@ class LoginPage extends StatelessWidget {
                   onPressed: () async {
                     var prefs = await SharedPreferences.getInstance();
                     prefs.setBool("Login", true);
+
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => MyHomePage()));
                   },
                   child: Text("Login"))
             ],
